@@ -8,4 +8,4 @@ function onRequest(req, res){
   console.log('Incoming connection from ' + req.connection.remoteAddress);
 }
 
-var server = http.createServer(onRequest).listen(process.env.PORT || 3000);
+var server = http.createServer(onRequest).listen(process.env.PORT);
