@@ -20,6 +20,9 @@ function onRequest(req, res){
 
 var server = http.createServer(onRequest).listen(process.env.PORT);
 
+
+
+
 ## 🚀 Deployment Steps
 
 ✅ 1. Dockerize the Application
@@ -42,6 +45,9 @@ Since Minikube (Docker driver) runs in a bridge network, NodePort isn’t direct
 Now your service can be accessed via:
 - http://<EC2_PUBLIC_IP>:8080
 
+
+
+
 ## 🧪 Tech Stack
 - Node.js
 
@@ -52,6 +58,9 @@ Now your service can be accessed via:
 - AWS EC2
 
 - socat
+
+
+
 
 ## 👨‍💻 Author
 Royston | AWS Certified | Cloud & DevOps Enthusiasm
