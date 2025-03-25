@@ -19,31 +19,31 @@ function onRequest(req, res){
 }
 
 var server = http.createServer(onRequest).listen(process.env.PORT);
-
-
-
+```
 
 ## 🚀 Deployment Steps
 
-✅ 1. Dockerize the Application
+### 1. Dockerize the Application
 
-- docker build -t froghanabiiii/node-app:v1 .
-- docker push froghanabiiii/node-app:v1
+```bash
+docker build -t froghanabiiii/node-app:v1 .
+docker push froghanabiiii/node-app:v1
+```
 
-✅ 2. Deploy to Kubernetes via Minikube
+### 2. Deploy to Kubernetes via Minikube
 
-- kubectl apply -f deployment.yaml
-- kubectl apply -f service.yaml
+```bash
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+```
 
-✅ 3. Expose NodePort using socat
+### 3. Expose NodePort
 
 The Kubernetes Service is configured as NodePort, exposing the application on port 30080.
 With proper EC2 security group settings allowing inbound TCP traffic on port 30080, the service is accessible publicly.
 
-Now you can access the app via:
+### 4. Now your service can be accessed via:
 - http://<EC2_PUBLIC_IP>:30080
-
-
 
 ## 🧪 Tech Stack
 - Node.js
@@ -54,14 +54,8 @@ Now you can access the app via:
 
 - AWS EC2
 
-
-
-
 ## 👨‍💻 Author
 Royston | AWS Certified | Cloud & DevOps Enthusiasm
-
-
-
 
 
 
