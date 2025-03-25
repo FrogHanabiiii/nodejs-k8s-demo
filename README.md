@@ -1,6 +1,6 @@
 # 🐳 Node.js App Deployment on Kubernetes (Minikube on AWS EC2)
 
-This project demonstrates deploying a simple Node.js application to a Kubernetes cluster (Minikube) running on a t3a.small EC2 instance (AWS). It includes Dockerization, K8s deployment, NodePort exposure, and public access via `socat` port mapping.
+This project demonstrates deploying a simple Node.js application to a Kubernetes cluster (Minikube) running on a t3a.small EC2 instance (AWS). It includes Dockerization, K8s deployment, NodePort exposure.
 
 ---
 
@@ -37,14 +37,11 @@ var server = http.createServer(onRequest).listen(process.env.PORT);
 
 ✅ 3. Expose NodePort using socat
 
-Since Minikube (Docker driver) runs in a bridge network, NodePort isn’t directly accessible from the internet. To expose it, use socat to bridge a public EC2 port (e.g., 8080) to the Minikube virtual IP and NodePort (e.g., 30080):
+The Kubernetes Service is configured as NodePort, exposing the application on port 30080.
+With proper EC2 security group settings allowing inbound TCP traffic on port 8080, the service is accessible publicly.
 
-- sudo apt install socat
-- sudo socat TCP-LISTEN:8080,fork TCP:192.168.49.2:30080
-
-Now your service can be accessed via:
+Now you can access the app via:
 - http://<EC2_PUBLIC_IP>:8080
-
 
 
 
@@ -56,8 +53,6 @@ Now your service can be accessed via:
 - Kubernetes (Minikube)
 
 - AWS EC2
-
-- socat
 
 
 
