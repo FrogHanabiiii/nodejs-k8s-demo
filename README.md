@@ -38,10 +38,10 @@ var server = http.createServer(onRequest).listen(process.env.PORT);
 ✅ 3. Expose NodePort using socat
 
 The Kubernetes Service is configured as NodePort, exposing the application on port 30080.
-With proper EC2 security group settings allowing inbound TCP traffic on port 8080, the service is accessible publicly.
+With proper EC2 security group settings allowing inbound TCP traffic on port 30080, the service is accessible publicly.
 
 Now you can access the app via:
-- http://<EC2_PUBLIC_IP>:8080
+- http://<EC2_PUBLIC_IP>:30080
 
 
 
